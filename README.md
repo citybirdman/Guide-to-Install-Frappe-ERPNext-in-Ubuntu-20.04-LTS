@@ -48,6 +48,8 @@ A complete Guide to Install Frappe Bench in Ubuntu 22.04 LTS and install Frappe/
 ### STEP 6  MySQL database development files
 
     sudo apt-get install libmysqlclient-dev
+###      STEP 7 Mariadb configuration
+Create a file `/etc/my.cnf.d/frappe.cnf` or `/etc/mysql/mariadb.conf.d/frappe.cnf` and add
 
 ### For MariaDB <= 10.2
       
@@ -112,9 +114,9 @@ https://discuss.erpnext.com/t/table-tabdefaultvalue-missing-error-when-creating-
     
 ### STEP 13 initilise the frappe bench & install frappe latest version 
 
-    bench init frappe-bench 
+    bench init --frappe-branch=version-13 --python=python3.8 erpnext
     
-    cd frappe-bench/
+    cd erpnext/
     bench start
     
 ### STEP 14 create a site in frappe bench 
