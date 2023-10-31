@@ -38,10 +38,6 @@ A complete Guide to Install Frappe Bench in Ubuntu 22.04 LTS and install Frappe/
   
     sudo apt install python3.8-venv
 
-  IF VERSION IS 3.10.X RUN
-  
-     sudo apt install python3.10-venv
-
 ### STEP 5 Install MariaDB
 
     sudo apt-get install software-properties-common
@@ -53,37 +49,36 @@ A complete Guide to Install Frappe Bench in Ubuntu 22.04 LTS and install Frappe/
 
     sudo apt-get install libmysqlclient-dev
 
-### STEP 7 Edit the mariadb configuration ( unicode character encoding )
+### For MariaDB <= 10.2
+      
+      [mysqld]
+      innodb-file-format=barracuda
+      innodb-file-per-table=1
+      innodb-large-prefix=1
+      character-set-client-handshake = FALSE
+      character-set-server = utf8mb4
+      collation-server = utf8mb4_unicode_ci
+      
+      [mysql]
+      default-character-set = utf8mb4
 
-    sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+### For MariaDB >= 10.3
 
-add this to the 50-server.cnf file
+      [mysqld]
+      character-set-client-handshake = FALSE
+      character-set-server = utf8mb4
+      collation-server = utf8mb4_unicode_ci
+      
+      [mysql]
+      default-character-set = utf8mb4
+      
+###      For MariaDB >= 10.6
 
-    
-     [server]
-     user = mysql
-     pid-file = /run/mysqld/mysqld.pid
-     socket = /run/mysqld/mysqld.sock
-     basedir = /usr
-     datadir = /var/lib/mysql
-     tmpdir = /tmp
-     lc-messages-dir = /usr/share/mysql
-     bind-address = 127.0.0.1
-     query_cache_size = 16M
-     log_error = /var/log/mysql/error.log
-    
-     [mysqld]
-     innodb-file-format=barracuda
-     innodb-file-per-table=1
-     innodb-large-prefix=1
-     character-set-client-handshake = FALSE
-     character-set-server = utf8mb4
-     collation-server = utf8mb4_unicode_ci      
-     
-     [mysql]
-     default-character-set = utf8mb4
+https://discuss.erpnext.com/t/table-tabdefaultvalue-missing-error-when-creating-new-site/78019/10
 
-Now press (Ctrl-X) to exit
+      Restart MariaDB
+
+###       Now press (Ctrl-X) to exit
 
     sudo service mysql restart
 
