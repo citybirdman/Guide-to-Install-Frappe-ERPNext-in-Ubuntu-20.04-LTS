@@ -1,2 +1,2 @@
 ### Here are some guides for erpnext installation and app development for version 13 on ubuntu 20.04 server
-you can see how to install erpnext 13 on ubuntu 20.04 from [Here](https://github.com/citybirdman/Guide-to-Install-Frappe-ERPNext-in-Ubuntu-20.04-LTS/blob/main/Guide-to-Install-Frappe-ERPNext-in-Ubuntu-20.04-LTS%20.md)
+you can see how to install erpnext 13 on ubuntu 20.04 from [Here](https://github.com/citybirdman/Guide-to-Install-Frappe-ERPNext-in-Ubuntu-20.04-LTS/wiki/Guide-to-Install-Frappe-ERPNext-in-Ubuntu-20.04-LTS-)
