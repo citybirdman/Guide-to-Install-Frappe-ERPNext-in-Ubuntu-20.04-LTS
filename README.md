@@ -135,4 +135,16 @@ https://discuss.erpnext.com/t/table-tabdefaultvalue-missing-error-when-creating-
     
     bench start
 
-    
+### Advices for you while restoring Data bases
+ For restoring data from file called `data.sql` use this command
+ 
+      bench --site {your_site} restore /path/to/file/data.sql
+
+ For force install database neglicting there is any issues use `--force`   
+
+      bench --site {your_site} restore /path/to/file/data.sql --force
+
+ Remove any app that is not exist any more with that command
+
+      bench --site {your_site} remove-from-installed-apps {app_name}
+
